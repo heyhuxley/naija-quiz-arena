@@ -13,7 +13,7 @@ _These are recommendations to keep your build orderly, not requirements. Skip an
 |---|---------|-------|--------|
 | 1 | Starter app scaffold | Existing | existing |
 | 2 | Project context and development standards | Foundation | planned |
-| 3 | Product architecture and environments | Foundation | planned |
+| 3 | Product architecture and environments | Foundation | in-progress |
 | 4 | Data model and game integrity | Foundation | planned |
 | 5 | Design system and accessibility | Foundation | planned |
 | 6 | Privacy and product measurement | Foundation | planned |
@@ -41,11 +41,18 @@ Record how this project is organized and establish consistent development guidan
 **Done when:** project guidance describes the actual app structure and the existing code checks run cleanly.
 * [ ] Capture project context: `/audit`
 
-### 3. Product architecture and environments · planned
+### 3. Product architecture and environments · in-progress
 Choose the product boundaries and operating setup so the public game, creator tools, and trusted game actions can grow safely.
 **Done when:** the architecture and environment plan support a small launch, protected secrets, and a clear path to measured growth.
 * [x] Design it (spec): `/architect product architecture and environments`
 Spec: [0001](../specs/0001-product-architecture/index.md)
+* [x] Build it: `/develop product architecture and environments`
+  * [x] Set up React Router framework mode on Workers with server rendering
+  * [x] Configure local type generation, build, and Worker asset settings
+  * [x] Add quality checks and ordered Supabase release workflows
+  * [x] Protect staging and require production environment approval
+  * [ ] Add Supabase environment credentials and connect Workers Builds to staging and production branches
+Code in `app/`, `workers/`, `.github/workflows/`, `supabase/`, `wrangler.jsonc`, and the root package configuration.
 
 ### 4. Data model and game integrity · planned · needs a decision
 Define quizzes, questions, versions, guest sessions, answers, and player records so published content stays stable and answer keys stay private.

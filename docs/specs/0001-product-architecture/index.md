@@ -1,7 +1,7 @@
 # 0001. A managed modular architecture for the quiz platform
 
 **Date**: 2026-11-19
-**Status**: Proposed
+**Status**: In Progress
 
 ## Summary
 

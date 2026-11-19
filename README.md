@@ -1,75 +1,25 @@
-# React + TypeScript + Vite
+# Who Wants To Be A Literature Giant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project uses React Router framework mode on Cloudflare Workers. Supabase will provide the database, identity, storage, and trusted game commands as those features are built.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Install dependencies with `npm install`, then run `npm run dev`.
 
-## React Compiler
+Run `npm run typecheck` to generate route types and check TypeScript. Run `npm run build` to create the production client and Worker bundles.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Cloudflare
 
-## Expanding the ESLint configuration
+The Worker configuration is in `wrangler.jsonc`. Use `npm run preview` to run the built Worker locally. Deployment is configured by the project workflow and is not enabled from this starter.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Configure Cloudflare Workers Builds to create branch previews with mock data, deploy the `staging` branch to staging, and deploy `main` to production. Keep production Worker deployment after the approved Supabase release for the same commit.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Supabase releases
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The `Supabase release` GitHub workflow deploys migrations and Edge Functions from `staging` to the staging Supabase project. To release, run it manually from the `staging` branch and choose `production`. The production environment waits for an approval, applies the database changes, then promotes that exact commit to `main`. Cloudflare Workers Builds should deploy production from `main`, after the approval and database deployment have passed.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create GitHub environments named `staging` and `production`. Add a required reviewer to `production`. In each environment, set the `SUPABASE_ACCESS_TOKEN` and `SUPABASE_DB_PASSWORD` secrets, and the `SUPABASE_PROJECT_REF` variable for that environment. Scope the access token to the staging and production projects. The production environment permits the protected `staging` branch because that is where the approved release starts. Do not add production credentials to ordinary branch previews.
 
-```
+## Architecture
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+The accepted stack and environment decisions are recorded in [the architecture spec](docs/specs/0001-product-architecture/index.md). Keep credentials out of browser code and source control.

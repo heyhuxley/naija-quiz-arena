@@ -14,8 +14,8 @@ _These are recommendations to keep your build orderly, not requirements. Skip an
 | 1 | Starter app scaffold | Existing | existing |
 | 2 | Project context and development standards | Foundation | planned |
 | 3 | Product architecture and environments | Foundation | in-progress |
-| 4 | Data model and game integrity | Foundation | planned |
-| 5 | Design system and accessibility | Foundation | planned |
+| 4 | Host led sessions and game integrity | Foundation | in-progress |
+| 5 | Design system and accessibility | Foundation | in-progress |
 | 6 | Privacy and product measurement | Foundation | planned |
 | 7 | Public quiz discovery | Slice 1 | planned |
 | 8 | Quiz details | Slice 1 | planned |
@@ -54,15 +54,33 @@ Spec: [0001](../specs/0001-product-architecture/index.md)
   * [ ] Add Supabase environment credentials and connect Workers Builds to staging and production branches
 Code in `app/`, `workers/`, `.github/workflows/`, `supabase/`, `wrangler.jsonc`, and the root package configuration.
 
-### 4. Data model and game integrity · planned · needs a decision
-Define quizzes, questions, versions, guest sessions, answers, and player records so published content stays stable and answer keys stay private.
-**Done when:** a game can use a fixed quiz version, avoid duplicate questions, retain its canonical outcome, and keep answer keys out of public quiz data.
-* [ ] Design it (spec): `/architect data model and game integrity`
+### 4. Host led sessions and game integrity · in-progress
+Let approved hosts manage the shared question bank and run synchronized 15 question sessions for guests without accounts.
+**Done when:** hosts can manage versioned questions and run secure sessions with private answers, lifelines, recovery, and accurate private results.
+* [x] Design it (spec): `/architect host led sessions and game integrity`
+Spec: [0002](../specs/0002-hosted-game-integrity/index.md)
+* [ ] Build it: `/develop host led sessions and game integrity`
+  * [ ] Add the schema, host approval, question bank, and administrator moderation flows (AC-1, AC-2, AC-13)
+  * [ ] Build version pinned session setup, join codes, guest identity, and host and guest lobbies (AC-3, AC-4, AC-5, AC-9, AC-14)
+  * [ ] Implement synchronized session state, timing, answers, results, and recovery (AC-6, AC-7, AC-10, AC-11, AC-13)
+  * [ ] Add lifelines, retention, deletion, and reconnect handling (AC-8, AC-9, AC-12)
+* [ ] Verify it: `/check verify host led sessions and game integrity`
+* [ ] Test it: `/test host led sessions and game integrity`
+  Code in `app/routes/`, `app/lib/`, `app/app.css`, and `supabase/`. Initial administrator setup: `supabase/ADMIN_BOOTSTRAP.md`.
 
-### 5. Design system and accessibility · planned · needs a decision
+### 5. Design system and accessibility · in-progress
 Create a distinctive, responsive visual system for discovery, play, results, and the later studio.
 **Done when:** core screens support keyboard use, screen readers, readable contrast, zoom, reduced motion, and mobile friendly play.
-* [ ] Design it (spec): `/architect design system and accessibility`
+* [x] Design it (spec): `/architect design system and accessibility`
+Spec: [0003](../specs/0003-design-system-and-ui-polish.md)
+* [ ] Build it: `/develop design system and accessibility`
+  * [x] Establish shared responsive shell and page composition (AC-1, AC-2, AC-12, AC-13)
+  * [ ] Polish host authentication, session setup, and live controls (AC-3, AC-4, AC-6, AC-11)
+  * [ ] Polish question bank and moderation states (AC-5, AC-11, AC-13, AC-16)
+  * [ ] Polish guest join, play, reveal, paused, and result states (AC-7, AC-8, AC-9, AC-10, AC-11)
+  * [ ] Verify responsive and accessibility behavior across phone, tablet, and desktop (AC-14, AC-15)
+* [ ] Verify it: `/check verify design system and accessibility`
+* [ ] Test it: `/test design system and accessibility`
 
 ### 6. Privacy and product measurement · planned · needs a decision
 Set privacy boundaries and measure the path from discovery through completed games without collecting unnecessary personal data.

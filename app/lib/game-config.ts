@@ -1,0 +1,21 @@
+export const PRIZE_LADDER_NGN = [
+  1_000,
+  2_500,
+  5_000,
+  10_000,
+  15_000,
+  25_000,
+  40_000,
+  60_000,
+  80_000,
+  100_000,
+  150_000,
+  200_000,
+  250_000,
+  350_000,
+  500_000,
+] as const;
+
+export const QUESTION_TIME_LIMITS_SECONDS = [15, 30, 60] as const;
+export const MAX_SESSION_GUESTS = 10;
+export const SESSION_QUESTION_COUNT = PRIZE_LADDER_NGN.length;

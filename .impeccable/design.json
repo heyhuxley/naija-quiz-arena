@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T15:40:43+01:00",
+  "title": "Design System: The Exposed Question Binding",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Forest Green",
+        "canonical": "#284b39",
+        "tonalRamp": ["oklch(15% 0.035 155)", "oklch(25% 0.05 155)", "oklch(35% 0.06 155)", "oklch(45% 0.07 155)", "oklch(55% 0.075 155)", "oklch(65% 0.065 155)", "oklch(75% 0.045 155)", "oklch(95% 0.012 155)"]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Forest Green, Dark Theme",
+        "canonical": "#a8c8a9",
+        "tonalRamp": ["oklch(15% 0.025 145)", "oklch(25% 0.04 145)", "oklch(35% 0.055 145)", "oklch(45% 0.065 145)", "oklch(55% 0.07 145)", "oklch(65% 0.06 145)", "oklch(75% 0.045 145)", "oklch(95% 0.012 145)"]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Deep Green",
+        "canonical": "#1d392b",
+        "tonalRamp": ["oklch(15% 0.035 155)", "oklch(25% 0.05 155)", "oklch(35% 0.06 155)", "oklch(45% 0.07 155)", "oklch(55% 0.075 155)", "oklch(65% 0.065 155)", "oklch(75% 0.045 155)", "oklch(95% 0.012 155)"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Rag Paper",
+        "canonical": "#fffefa",
+        "tonalRamp": ["oklch(15% 0.006 100)", "oklch(25% 0.008 100)", "oklch(35% 0.01 100)", "oklch(45% 0.012 100)", "oklch(55% 0.014 100)", "oklch(65% 0.016 100)", "oklch(75% 0.018 100)", "oklch(95% 0.012 100)"]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Night Paper",
+        "canonical": "#1d211e",
+        "tonalRamp": ["oklch(15% 0.006 145)", "oklch(25% 0.008 145)", "oklch(35% 0.01 145)", "oklch(45% 0.012 145)", "oklch(55% 0.014 145)", "oklch(65% 0.016 145)", "oklch(75% 0.018 145)", "oklch(95% 0.012 145)"]
+      },
+      "paper-soft": {
+        "role": "neutral",
+        "displayName": "Soft Paper",
+        "canonical": "#f7f6f0",
+        "tonalRamp": ["oklch(15% 0.006 100)", "oklch(25% 0.008 100)", "oklch(35% 0.01 100)", "oklch(45% 0.012 100)", "oklch(55% 0.014 100)", "oklch(65% 0.016 100)", "oklch(75% 0.018 100)", "oklch(95% 0.012 100)"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Printed Ink",
+        "canonical": "#292a25",
+        "tonalRamp": ["oklch(15% 0.006 100)", "oklch(25% 0.008 100)", "oklch(35% 0.01 100)", "oklch(45% 0.012 100)", "oklch(55% 0.014 100)", "oklch(65% 0.016 100)", "oklch(75% 0.018 100)", "oklch(95% 0.012 100)"]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Printed Ink, Dark Theme",
+        "canonical": "#f4f1e8",
+        "tonalRamp": ["oklch(15% 0.006 95)", "oklch(25% 0.008 95)", "oklch(35% 0.01 95)", "oklch(45% 0.012 95)", "oklch(55% 0.014 95)", "oklch(65% 0.016 95)", "oklch(75% 0.018 95)", "oklch(95% 0.012 95)"]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Muted Reading Ink",
+        "canonical": "#42443d",
+        "tonalRamp": ["oklch(15% 0.006 100)", "oklch(25% 0.008 100)", "oklch(35% 0.01 100)", "oklch(45% 0.012 100)", "oklch(55% 0.014 100)", "oklch(65% 0.016 100)", "oklch(75% 0.018 100)", "oklch(95% 0.012 100)"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Quiet Ink",
+        "canonical": "#65675e",
+        "tonalRamp": ["oklch(15% 0.006 105)", "oklch(25% 0.008 105)", "oklch(35% 0.01 105)", "oklch(45% 0.012 105)", "oklch(55% 0.014 105)", "oklch(65% 0.016 105)", "oklch(75% 0.018 105)", "oklch(95% 0.012 105)"]
+      },
+      "thread": {
+        "role": "neutral",
+        "displayName": "Linen Thread",
+        "canonical": "#c9c1ad",
+        "tonalRamp": ["oklch(15% 0.01 85)", "oklch(25% 0.016 85)", "oklch(35% 0.022 85)", "oklch(45% 0.028 85)", "oklch(55% 0.034 85)", "oklch(65% 0.03 85)", "oklch(75% 0.024 85)", "oklch(95% 0.012 85)"]
+      },
+      "board": {
+        "role": "neutral",
+        "displayName": "Book Brown",
+        "canonical": "#76573b",
+        "tonalRamp": ["oklch(15% 0.018 60)", "oklch(25% 0.03 60)", "oklch(35% 0.045 60)", "oklch(45% 0.06 60)", "oklch(55% 0.07 60)", "oklch(65% 0.06 60)", "oklch(75% 0.045 60)", "oklch(95% 0.012 60)"]
+      },
+      "board-dark": {
+        "role": "neutral",
+        "displayName": "Book Brown, Dark Theme",
+        "canonical": "#d3b493",
+        "tonalRamp": ["oklch(15% 0.018 70)", "oklch(25% 0.03 70)", "oklch(35% 0.045 70)", "oklch(45% 0.06 70)", "oklch(55% 0.07 70)", "oklch(65% 0.06 70)", "oklch(75% 0.045 70)", "oklch(95% 0.012 70)"]
+      },
+      "control-border": {
+        "role": "neutral",
+        "displayName": "Control Edge",
+        "canonical": "#8d8677",
+        "tonalRamp": ["oklch(15% 0.01 85)", "oklch(25% 0.016 85)", "oklch(35% 0.022 85)", "oklch(45% 0.028 85)", "oklch(55% 0.034 85)", "oklch(65% 0.03 85)", "oklch(75% 0.024 85)", "oklch(95% 0.012 85)"]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Error Red",
+        "canonical": "#a3332d",
+        "tonalRamp": ["oklch(15% 0.04 25)", "oklch(25% 0.08 25)", "oklch(35% 0.12 25)", "oklch(45% 0.16 25)", "oklch(55% 0.18 25)", "oklch(65% 0.16 25)", "oklch(75% 0.12 25)", "oklch(95% 0.025 25)"]
+      },
+      "success": {
+        "role": "success",
+        "displayName": "Success Green",
+        "canonical": "#286b48",
+        "tonalRamp": ["oklch(15% 0.035 150)", "oklch(25% 0.05 150)", "oklch(35% 0.06 150)", "oklch(45% 0.07 150)", "oklch(55% 0.075 150)", "oklch(65% 0.065 150)", "oklch(75% 0.045 150)", "oklch(95% 0.012 150)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Literata Display",
+        "purpose": "Editorial page and question headings."
+      },
+      "body": {
+        "displayName": "Inter",
+        "purpose": "Controls, labels, supporting copy, and operational information."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Subtle press feedback and restrained state movement."
+      },
+      {
+        "name": "control-transition",
+        "value": "160ms ease",
+        "purpose": "Button and answer-option color and border changes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "420px"
+      },
+      {
+        "name": "single-column",
+        "value": "760px"
+      }
+    ],
+    "components": [
+      {
+        "name": "Primary Button",
+        "kind": "button",
+        "refersTo": "button-primary",
+        "description": "Confident forest-green action with direct press and focus feedback.",
+        "html": "<button class=\"ds-button-primary\">Join session</button>",
+        "css": ".ds-button-primary { min-height: 48px; border: 1px solid transparent; border-radius: 2px; background: #284b39; padding: 0 18px; color: #fffefa; font: 700 1rem Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: background-color 160ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-button-primary:hover:not(:disabled) { background: #1d392b; } .ds-button-primary:focus-visible { outline: 3px solid #284b39; outline-offset: 3px; } .ds-button-primary:active:not(:disabled) { transform: scale(0.97); } .ds-button-primary:disabled { cursor: not-allowed; opacity: 0.56; }"
+      },
+      {
+        "name": "Secondary Button",
+        "kind": "button",
+        "refersTo": "button-secondary",
+        "description": "Quiet outlined action for secondary choices.",
+        "html": "<button class=\"ds-button-secondary\">Cancel</button>",
+        "css": ".ds-button-secondary { min-height: 48px; border: 1px solid #8d8677; border-radius: 2px; background: transparent; padding: 0 18px; color: #292a25; font: 700 1rem Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: background-color 160ms ease, border-color 160ms ease; } .ds-button-secondary:hover:not(:disabled) { border-color: #284b39; background: #f7f6f0; } .ds-button-secondary:focus-visible { outline: 3px solid #284b39; outline-offset: 3px; }"
+      },
+      {
+        "name": "Text Field",
+        "kind": "input",
+        "refersTo": "input",
+        "description": "Paper-colored field with a clear, high-contrast boundary.",
+        "html": "<label class=\"ds-field-label\">Session code<input class=\"ds-field\" placeholder=\"Six character code\" /></label>",
+        "css": ".ds-field-label { display: grid; gap: 9px; color: #292a25; font: 650 0.9rem/1.4 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-field { min-height: 50px; min-width: 0; border: 1px solid #8d8677; border-radius: 2px; background: #fffefa; padding: 12px 14px; color: #292a25; font: 400 1rem/1.5 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-field:focus-visible { outline: 3px solid #284b39; outline-offset: 3px; } .ds-field::placeholder { color: #65675e; opacity: 1; }"
+      },
+      {
+        "name": "Site Navigation",
+        "kind": "nav",
+        "refersTo": "navigation",
+        "description": "A stable wordmark-and-link header separated by a fine linen rule.",
+        "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\"><span class=\"ds-mark\">LG</span><span>Literature Giant</span></a><a class=\"ds-nav-link\" href=\"#\">Host sign in</a></nav>",
+        "css": ".ds-nav { display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid #c9c1ad; color: #292a25; font: 700 0.95rem Inter, ui-sans-serif, system-ui, sans-serif; } .ds-wordmark { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; } .ds-mark { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid #76573b; color: #284b39; font: 500 0.75rem Literata, Georgia, serif; } .ds-nav-link { color: #284b39; text-underline-offset: 4px; } .ds-nav-link:focus-visible { outline: 3px solid #284b39; outline-offset: 3px; }"
+      },
+      {
+        "name": "Question Thread",
+        "kind": "custom",
+        "refersTo": "question-thread",
+        "description": "A fifteen-step progress path showing the shared run and its current state.",
+        "html": "<ol class=\"ds-thread\"><li class=\"is-complete\">01</li><li class=\"is-current\">02</li><li>03</li></ol>",
+        "css": ".ds-thread { display: grid; gap: 8px; margin: 0; border-left: 1px solid #c9c1ad; padding: 0 0 0 18px; list-style: none; color: #65675e; font: 400 0.75rem/1.5 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-thread li { position: relative; } .ds-thread li::before { position: absolute; top: 0.38em; left: -23px; width: 8px; height: 8px; border: 1px solid #76573b; border-radius: 50%; background: #fffefa; content: ''; } .ds-thread .is-complete, .ds-thread .is-current { color: #284b39; font-weight: 700; } .ds-thread .is-complete::before, .ds-thread .is-current::before { border-color: #284b39; background: #284b39; }"
+      }
+    ],
+    "narrative": {
+      "northStar": "The Exposed Question Binding",
+      "overview": "The interface feels like an open book that a host and guests move through together. Near-white paper, dark ink, and a fine linen-colored rule give the pages their quiet structure; a stitched fifteen-question path makes the shared run visible without turning it into broadcast spectacle. The atmosphere is editorial and warm, but the controls remain plain, familiar, and task-first.\n\nLiterata gives headings a bookish voice; Inter keeps forms, status, and reading clear. Flat surfaces and fine rules carry the layout instead of shadows or ornamental panels. The green marks the action and current state, while board brown and linen thread quietly recall the binding.",
+      "keyCharacteristics": [
+        "Paper-and-ink surfaces with restrained forest-green actions and book-board details.",
+        "Editorial display type paired with practical sans-serif controls.",
+        "One visible stitched thread connecting the shared fifteen-question run.",
+        "Calm, accessible controls and explicit operational states."
+      ],
+      "rules": [
+        {
+          "name": "The One Green Rule",
+          "body": "Use green to identify an action or live state, not as a general decorative fill.",
+          "section": "colors"
+        },
+        {
+          "name": "The Two-Voice Rule",
+          "body": "Keep Literata for editorial headings; use Inter for all information that must be scanned, entered, or acted on.",
+          "section": "typography"
+        },
+        {
+          "name": "The Flat-By-Default Rule",
+          "body": "Separate content with whitespace and rules; do not lift ordinary sections into floating cards.",
+          "section": "elevation"
+        }
+      ],
+      "dos": [
+        "Do use paper, ink, linen rules, and green states consistently across light and dark themes.",
+        "Do make the current question, answer choices, and host session state the easiest information to scan.",
+        "Do keep focus visible and respect reduced-motion preferences.",
+        "Do use the stitched thread to express the shared fifteen-question sequence."
+      ],
+      "donts": [
+        "Don't use shadows or floating dashboard cards to create hierarchy.",
+        "Don't turn the book-binding direction into ornamental game-show props or broadcast spectacle.",
+        "Don't use green as a large decorative surface when it is not marking an action or state.",
+        "Don't obscure status, answer privacy, or simulated prize information with visual treatment."
+      ]
+    }
+  }
+}

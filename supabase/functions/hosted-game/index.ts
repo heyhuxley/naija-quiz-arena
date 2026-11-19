@@ -104,7 +104,7 @@ async function reconnect(body: Record<string, unknown>) {
   return json({ guestToken, guestId: data[0].guest_id, sessionId });
 }
 
-async function createSession(request: Request) {
+async function createSession(request: Request, body: Record<string, unknown>) {
   const token = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   if (!token) return json({ error: "Sign in as an approved host." }, 401);
   const { data: auth, error: authError } = await authClient.auth.getUser(token);
@@ -116,7 +116,6 @@ async function createSession(request: Request) {
     .maybeSingle();
   if (host?.status !== "approved") return json({ error: "Approved host access is required." }, 403);
 
-  const body = await request.json();
   const timeLimit = Number(body.timeLimitSeconds);
   if (![15, 30, 60].includes(timeLimit))
     return json({ error: "Choose 15, 30, or 60 seconds." }, 400);
@@ -479,7 +478,7 @@ Deno.serve(async (request: Request) => {
     const body = await request.json();
     if (body.action === "join") return await join(request, body);
     if (body.action === "reconnect") return await reconnect(body);
-    if (body.action === "create_session") return await createSession(request);
+    if (body.action === "create_session") return await createSession(request, body);
     if (body.action === "read_state") return await readState(request, body);
     if (
       [
@@ -501,7 +500,8 @@ Deno.serve(async (request: Request) => {
     )
       return await gameCommand(request, body);
     return json({ error: "Unknown action." }, 400);
-  } catch {
+  } catch (error) {
+    console.error("hosted-game request failed", error);
     return json({ error: "The request could not be completed." }, 500);
   }
 });

@@ -9,7 +9,7 @@ type JoinedSession = {
   guestName: string;
   hostName: string;
   code: string;
-  guests: string[];
+  guests: { id: string; display_name: string; connection_state: string; joined_at: string }[];
   sessionId: string;
 };
 type GuestSessionView = {
@@ -381,9 +381,9 @@ export default function Join() {
               </h2>
               <p>You’ll see each question here when the game begins. Keep this page open.</p>
               <ul className="guest-list">
-                {(view?.guests ?? joined.guests).map((name) => (
-                  <li key={name}>{name}</li>
-                ))}
+                {view
+                  ? view.guests.map((guest) => <li key={guest.id}>{guest.display_name}</li>)
+                  : joined.guests.map((name) => <li key={name}>{name}</li>)}
               </ul>
             </div>
           )}

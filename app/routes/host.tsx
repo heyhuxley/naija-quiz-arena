@@ -46,6 +46,21 @@ type HostSessionView = {
   answerCount: number;
 };
 
+async function getFunctionErrorMessage(error: Error & { context?: unknown }) {
+  if (error.context instanceof Response) {
+    try {
+      const body: unknown = await error.context.clone().json();
+      if (body && typeof body === "object") {
+        const message = "error" in body ? body.error : "message" in body ? body.message : null;
+        if (typeof message === "string" && message) return message;
+      }
+    } catch {
+      // Fall back to the SDK error when the response is not JSON.
+    }
+  }
+  return error.message;
+}
+
 export default function Host() {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<HostProfile | null>(null);
@@ -204,10 +219,10 @@ export default function Host() {
           return version
             ? [
                 {
+                  ...version,
                   id: item.id,
                   category_slug: item.category_slug,
                   updated_at: item.updated_at,
-                  ...version,
                 } as BankQuestion,
               ]
             : [];
@@ -362,7 +377,11 @@ export default function Host() {
     const { data, error } = await supabase.functions.invoke("hosted-game", {
       body: { action: "create_session", timeLimitSeconds: timeLimit },
     });
-    setMessage(error?.message ?? "Session created. Add 15 questions before you start.");
+    setMessage(
+      error
+        ? await getFunctionErrorMessage(error)
+        : "Session created. Add 15 questions before you start.",
+    );
     if (!error && data) {
       setSessions((items) => [data as SessionRow, ...items]);
       setSelectedSession(data as SessionRow);
@@ -383,7 +402,7 @@ export default function Host() {
         ...extra,
       },
     });
-    setMessage(error?.message ?? "Session updated.");
+    setMessage(error ? await getFunctionErrorMessage(error) : "Session updated.");
     if (!error && action === "configure_session" && data?.data) {
       setSelectedSession((current) =>
         current ? { ...current, state_version: data.data } : current,
@@ -426,7 +445,7 @@ export default function Host() {
         explanation: String(form.get("explanation")),
       },
     });
-    setMessage(error?.message ?? "Question added to the shared bank.");
+    setMessage(error ? await getFunctionErrorMessage(error) : "Question added to the shared bank.");
     if (!error) {
       const formElement = document.getElementById("question-form") as HTMLFormElement | null;
       formElement?.reset();
@@ -457,10 +476,10 @@ export default function Host() {
           return version
             ? [
                 {
+                  ...version,
                   id: item.id,
                   category_slug: item.category_slug,
                   updated_at: item.updated_at,
-                  ...version,
                 } as BankQuestion,
               ]
             : [];
@@ -932,8 +951,12 @@ export default function Host() {
                         .invoke("hosted-game", {
                           body: { action: "deactivate_question", questionId: question.id },
                         })
-                        .then(({ error }) => {
-                          setMessage(error?.message ?? "Question removed from future sessions.");
+                        .then(async ({ error }) => {
+                          setMessage(
+                            error
+                              ? await getFunctionErrorMessage(error)
+                              : "Question removed from future sessions.",
+                          );
                           if (!error)
                             setBank((items) => items.filter((item) => item.id !== question.id));
                         })

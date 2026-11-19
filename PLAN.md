@@ -2,7 +2,7 @@
 
 ## Product direction
 
-Build **Naija Quiz Arena**, a polished, public-facing trivia platform for a large audience. Its game-show experience should feel visually distinctive, expressive, responsive, and fast, with a serious quiz-creation studio behind it. Treat the existing `index.html` as a feature reference only. Rebuild the product cleanly in React and design the data model, backend, and operating practices for many users.
+Build **Who Wants To Be A Literature Giant**, a polished, public-facing trivia platform for a large audience. Its game-show experience should feel visually distinctive, expressive, responsive, and fast, with a serious quiz-creation studio behind it. Treat the existing `index.html` as a feature reference only. Rebuild the product cleanly in React and design the data model, backend, and operating practices for many users.
 
 The GitHub repository slug can be `naija-quiz-arena`.
 
